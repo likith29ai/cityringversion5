@@ -1,0 +1,10 @@
+node_modules/
+.next/
+.vercel/
+out/
+coverage/
+.env*
+!.env.example
+tsconfig.tsbuildinfo
+
+app.zip

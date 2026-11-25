@@ -1,0 +1,219 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Custom scrollbar styling for chat messages */
+div::-webkit-scrollbar {
+  width: 6px;
+}
+
+div::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+div::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+div::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  input {
+    min-height: 44px;
+    font-size: 16px;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  body {
+    padding: 0;
+  }
+}
+
+/* Ultra-small screens */
+@media (max-width: 319px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+/* Print styles */
+@media print {
+  button[class*="fixed"] {
+    display: none;
+  }
+
+  div[class*="fixed"] {
+    display: none;
+  }
+}
+
+/* File: app/globals.css */
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --accent: #38bdf8;
+  --accent-dark: #0284c7;
+  --midnight: #02050d;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ═══════════════════════════════════════════
+   HIDE SCROLLBAR
+═══════════════════════════════════════════ */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ═══════════════════════════════════════════
+   3D CAROUSEL
+═══════════════════════════════════════════ */
+.carousel-3d {
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+}
+
+.carousel-3d-track {
+  transform-style: preserve-3d;
+  transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.carousel-3d-card {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease, opacity 0.6s ease, box-shadow 0.6s ease;
+}
+
+/* ═══════════════════════════════════════════
+   GLOWING ORBIT ELLIPSE (under carousel)
+═══════════════════════════════════════════ */
+@keyframes orbit-pulse {
+  0%, 100% { opacity: 0.4; filter: blur(1px); }
+  50% { opacity: 0.8; filter: blur(0px); }
+}
+
+.orbit-ring {
+  animation: orbit-pulse 3s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════
+   FLOATING PARTICLES
+═══════════════════════════════════════════ */
+@keyframes float-up {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100vh) translateX(var(--drift, 20px)); opacity: 0; }
+}
+
+.particle {
+  animation: float-up var(--duration, 12s) linear infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+/* ═══════════════════════════════════════════
+   STAT COUNTER GLOW
+═══════════════════════════════════════════ */
+@keyframes glow-pulse {
+  0%, 100% { text-shadow: 0 0 8px rgba(56, 189, 248, 0.3); }
+  50% { text-shadow: 0 0 20px rgba(56, 189, 248, 0.6); }
+}
+
+.stat-glow {
+  animation: glow-pulse 2.5s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════
+   CATEGORY PILL HOVER
+═══════════════════════════════════════════ */
+.category-pill {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.category-pill:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(56, 189, 248, 0.25);
+  border-color: rgba(56, 189, 248, 0.5);
+}
+
+/* ═══════════════════════════════════════════
+   CUSTOM SCROLLBAR
+═══════════════════════════════════════════ */
+div::-webkit-scrollbar { width: 6px; }
+div::-webkit-scrollbar-track { background: transparent; }
+div::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 3px; }
+div::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
+
+/* ═══════════════════════════════════════════
+   TOUCH DEVICE OPTIMIZATIONS
+═══════════════════════════════════════════ */
+@media (hover: none) and (pointer: coarse) {
+  button { min-height: 44px; min-width: 44px; }
+  input { min-height: 44px; font-size: 16px; }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  body { padding: 0; }
+}
+
+@media (max-width: 319px) {
+  body { font-size: 14px; }
+}
+
+@media print {
+  button[class*="fixed"] { display: none; }
+  div[class*="fixed"] { display: none; }
+}
